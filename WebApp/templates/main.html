@@ -8,8 +8,8 @@
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="../static/img/favicon.png" rel="icon">
-  <link href="../static/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://upload.wikimedia.org/wikipedia/ru/thumb/7/7a/Manchester_United_FC_crest.svg/1200px-Manchester_United_FC_crest.svg.png" rel="icon">
+  <link href="https://upload.wikimedia.org/wikipedia/ru/thumb/7/7a/Manchester_United_FC_crest.svg/1200px-Manchester_United_FC_crest.svg.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900|Raleway:400,300,700,900" rel="stylesheet">
@@ -46,8 +46,18 @@
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="main.html">Регистрация</a></li>
-          <li class="active"><a href="about.html">Вход</a></li>
+          <li>
+              <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalSignUp">
+                    Регистрация
+              </button>
+          </li>
+             <!-- Модаль регистрации -->
+
+          <li>
+              <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalSignIn" >
+                  Вход
+                </button>
+          </li>
         </ul>
       </div>
       <!--/.nav-collapse -->
@@ -58,6 +68,52 @@
     <div class="container">
       <div class="row centered">
         <div class="col-lg-8 col-lg-offset-2">
+        <h1>Чтобы создать свою турнирную таблицу зарегистрируйся или войди в систему</h1>
+
+                  <!-- Модальное окно регистрации-->
+                      <div class="modal fade" id="ModalSignUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header" style="color: black;text-align:center;">
+                                <h5>Создать учетную запись</h5>
+                              </div>
+                              <form method="post" action="/signup" style="color:black;">
+
+                                {% csrf_token %}
+                                  <h3>Email</h3>
+                                <p><input type="email" name="email" value="" placeholder="E-mail" required></p>
+                                  <h3>Password</h3>
+                                <input type="password" name="password" value="" placeholder="Пароль" required pattern="^[^2-20]+[^!@#$%^&*()_\s~]+$">
+                                <p class="remember_me">
+                                </p>
+                                <p class="submit"><button type="submit" class="btn btn-primary"> Войти </button></p>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+
+
+            <!-- Модальное окно входа-->
+                     <div class="modal fade" id="ModalSignIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header" style="color: black;text-align:center;">
+                                <h5>Войти в личный кабинет</h5>
+                              </div>
+                              <form method="post" action="/signin" style="color:black;">
+
+                                {% csrf_token %}
+                                <p><input type="email" name="email" value="" placeholder="E-mail" required></p>
+                                <p><input type="password" name="password" value="" placeholder="Пароль" required pattern="^[^2-20]+[^!@#$%^&*()_\s~]+$"></p>
+                                <p class="remember_me">
+                                </p>
+                                <p class="submit"><button type="submit" class="btn btn-primary"> Войти </button></p>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+
+
         </div>
       </div>
       <!-- row -->

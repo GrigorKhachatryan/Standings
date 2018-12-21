@@ -18,5 +18,6 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.main),
-
+    url(r'^signup$',views.signup),
+    url(r'^signin$',views.signin),
 ]
